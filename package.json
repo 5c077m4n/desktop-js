@@ -1,8 +1,8 @@
 {
-	"name": "cli-site",
+	"name": "desktop-js",
 	"private": true,
 	"version": "0.0.1",
-	"description": "Stencil App Starter",
+	"description": "An in-browser desktop",
 	"scripts": {
 		"build": "stencil build",
 		"start": "stencil build --dev --watch --serve",
