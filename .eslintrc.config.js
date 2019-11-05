@@ -4,6 +4,6 @@ module.exports = {
 	},
 	extends: ['plugin:@stencil/recommended'],
 	standard: {
-		env: ['mocha'],
+		env: { jest: true },
 	},
 };
