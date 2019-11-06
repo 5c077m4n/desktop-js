@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/5c077m4n/desktop-js.svg?branch=master)](https://travis-ci.org/5c077m4n/desktop-js)
-[![Coverage Status](https://coveralls.io/repos/github/5c077m4n/window-site/badge.svg?branch=master)](https://coveralls.io/github/5c077m4n/window-site?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/5c077m4n/desktop-js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/5c077m4n/desktop-js?targetFile=package.json)
+
+  
 
 # Stencil App Starter
 
