@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/5c077m4n/desktop-js.svg?branch=master)](https://travis-ci.org/5c077m4n/desktop-js)
+[![Coverage Status](https://coveralls.io/repos/github/5c077m4n/window-site/badge.svg?branch=master)](https://coveralls.io/github/5c077m4n/window-site?branch=master)
+
 # Stencil App Starter
 
 Stencil is a compiler for building fast web apps using Web Components.
