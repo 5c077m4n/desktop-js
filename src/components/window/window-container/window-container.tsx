@@ -51,7 +51,6 @@ export class WindowContainer {
 					transform: `translate(${x + event.deltaRect.left}px, ${y +
 						event.deltaRect.top}px)`,
 				});
-				Object.assign(event.target.dataset, { x, y });
 			});
 	}
 
