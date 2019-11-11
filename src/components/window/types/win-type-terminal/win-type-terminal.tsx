@@ -11,8 +11,7 @@ export class WinTypeTerminal {
 	@Element() private el: HTMLElement;
 	private term;
 
-	async componentDidLoad() {
-		console.log(Terminal);
+	componentDidLoad() {
 		this.term = new Terminal();
 		this.term.open(this.el);
 		this.term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
