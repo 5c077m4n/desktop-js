@@ -1,5 +1,5 @@
-export interface windowState {
-	windowId: number;
-	WindowName: string;
-	windowType: string;
+export interface WindowState {
+	windowId: number | string;
+	WindowName?: string;
+	windowType?: string;
 }

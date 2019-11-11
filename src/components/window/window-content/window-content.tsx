@@ -1,18 +1,23 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'window-content',
-  styleUrl: 'window-content.css',
-  shadow: true
+	tag: 'window-content',
+	styleUrl: 'window-content.css',
+	shadow: true,
 })
 export class WindowContent {
+	@Prop({ reflect: true }) public windowType: string;
 
-  render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
-  }
-
+	render() {
+		switch (this.windowType) {
+			case 'terminal':
+				return <win-type-terminal />;
+			default:
+				return (
+					<Host>
+						<slot></slot>
+					</Host>
+				);
+		}
+	}
 }

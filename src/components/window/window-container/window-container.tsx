@@ -33,23 +33,18 @@ export class WindowContainer {
 			})
 			.on('dragmove', event => {
 				const { target } = event;
-				const position: DOMRect = target.getBoundingClientRect() as DOMRect;
-				const x = position.x + event.dx;
-				const y = position.y + event.dy;
+				const { x, y } = target.getBoundingClientRect() as DOMRect;
 
-				target.style.webkitTransform = target.style.transform = `translate(${x}px, ${y}px)`;
+				target.style.webkitTransform = target.style.transform = `translate(${x + event.dx}px, ${y +
+					event.dy}px)`;
 			})
 			.on('resizemove', event => {
-				const {
-					x,
-					y,
-				} = event.target.getBoundingClientRect() as DOMRect;
+				const { x, y } = event.target.getBoundingClientRect() as DOMRect;
 
 				Object.assign(event.target.style, {
 					width: `${event.rect.width}px`,
 					height: `${event.rect.height}px`,
-					transform: `translate(${x + event.deltaRect.left}px, ${y +
-						event.deltaRect.top}px)`,
+					transform: `translate(${x + event.deltaRect.left}px, ${y + event.deltaRect.top}px)`,
 				});
 			});
 	}

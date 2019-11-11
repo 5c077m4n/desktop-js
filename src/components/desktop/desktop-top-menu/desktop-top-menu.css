@@ -1,3 +1,11 @@
 :host {
-  display: block;
+	display: flex;
+	flex-direction: row;
+	height: var(--start-menu-height);
+
+	border: 1px solid black;
+}
+
+.spacer {
+	flex-grow: 1;
 }

@@ -10,3 +10,7 @@
 	touch-action: none;
 	user-select: none;
 }
+
+:host:active {
+	z-index: 10;
+}
