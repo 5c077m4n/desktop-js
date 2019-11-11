@@ -1,5 +1,5 @@
 import { Component, Host, h, Element } from '@stencil/core';
-import interact from 'interactjs';
+import Moveable from 'moveable';
 
 @Component({
 	tag: 'window-container',
@@ -8,45 +8,46 @@ import interact from 'interactjs';
 })
 export class WindowContainer {
 	@Element() private el: HTMLElement;
+	private moveable;
 
 	componentDidLoad() {
-		interact(this.el)
-			.draggable({
-				modifiers: [
-					interact.modifiers.restrictRect({
-						restriction: 'parent',
-						endOnly: true,
-					}),
-				],
-			})
-			.resizable({
-				edges: { right: true, bottom: true },
-				modifiers: [
-					interact.modifiers.restrictEdges({
-						outer: 'parent',
-						endOnly: true,
-					}),
-					interact.modifiers.restrictSize({
-						min: { width: 300, height: 150 },
-					}),
-				],
-			})
-			.on('dragmove', event => {
-				const { target } = event;
-				const { x, y } = target.getBoundingClientRect() as DOMRect;
-
-				target.style.webkitTransform = target.style.transform = `translate(${x + event.dx}px, ${y +
-					event.dy}px)`;
-			})
-			.on('resizemove', event => {
-				const { x, y } = event.target.getBoundingClientRect() as DOMRect;
-
-				Object.assign(event.target.style, {
-					width: `${event.rect.width}px`,
-					height: `${event.rect.height}px`,
-					transform: `translate(${x + event.deltaRect.left}px, ${y + event.deltaRect.top}px)`,
-				});
-			});
+		this.moveable = new Moveable(document.body, {
+			target: this.el,
+			container: this.el.parentElement,
+			draggable: true,
+			resizable: true,
+			scalable: true,
+			pinchable: true,
+			origin: true,
+		})
+			.on(
+				'drag',
+				({
+					target,
+					transform,
+					left,
+					top,
+					right,
+					bottom,
+					beforeDelta,
+					beforeDist,
+					delta,
+					dist,
+					clientX,
+					clientY,
+				}) => {
+					target!.style.left = `${left}px`;
+					target!.style.top = `${top}px`;
+					target!.style.transform = transform;
+				}
+			)
+			.on(
+				'resize',
+				({ target, width, height, dist, delta, clientX, clientY }) => {
+					delta[0] && (target!.style.width = `${width}px`);
+					delta[1] && (target!.style.height = `${height}px`);
+				}
+			);
 	}
 
 	render() {
@@ -58,5 +59,9 @@ export class WindowContainer {
 				<slot name="footer-content" />
 			</Host>
 		);
+	}
+
+	componentWillUnload() {
+		this.moveable.destroy();
 	}
 }

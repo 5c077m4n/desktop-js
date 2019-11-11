@@ -8,9 +8,10 @@ import { Terminal } from 'xterm';
 })
 export class WinTypeTerminal {
 	@Element() private el: HTMLElement;
-	private term = new Terminal();
+	private term;
 
 	async componentDidLoad() {
+		this.term = new Terminal();
 		this.term.open(this.el);
 		this.term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
 	}
