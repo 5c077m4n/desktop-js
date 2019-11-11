@@ -15,7 +15,9 @@ export namespace Components {
   interface DesktopStartMenu {}
   interface DesktopTopMenu {}
   interface WinTypeTerminal {}
-  interface WindowContainer {}
+  interface WindowContainer {
+    'windowType': string;
+  }
   interface WindowContent {
     'windowType': string;
   }
@@ -90,7 +92,9 @@ declare namespace LocalJSX {
   interface DesktopStartMenu {}
   interface DesktopTopMenu {}
   interface WinTypeTerminal {}
-  interface WindowContainer {}
+  interface WindowContainer {
+    'windowType'?: string;
+  }
   interface WindowContent {
     'windowType'?: string;
   }

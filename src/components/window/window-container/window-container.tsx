@@ -1,4 +1,4 @@
-import { Component, Host, h, Element } from '@stencil/core';
+import { Component, Host, h, Element, Prop } from '@stencil/core';
 import Moveable from 'moveable';
 
 @Component({
@@ -9,6 +9,7 @@ import Moveable from 'moveable';
 export class WindowContainer {
 	@Element() private el: HTMLElement;
 	private moveable;
+	@Prop({ reflect: true }) public windowType: string;
 
 	componentDidLoad() {
 		this.moveable = new Moveable(document.body, {
@@ -36,7 +37,7 @@ export class WindowContainer {
 			<Host>
 				<window-top-toolbar />
 				<slot name="secondary-toolbar" />
-				<window-main-content />
+				<window-content windowType={this.windowType} />
 				<slot name="footer-content" />
 			</Host>
 		);

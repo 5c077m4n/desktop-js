@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 // https://stenciljs.com/docs/config
 
@@ -14,5 +15,5 @@ export const config: Config = {
 			baseUrl: 'https://myapp.local/',
 		},
 	],
-	plugins: [sass()],
+	plugins: [sass(), nodePolyfills()],
 };
