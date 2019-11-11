@@ -20,34 +20,15 @@ export class WindowContainer {
 			pinchable: true,
 			origin: true,
 		})
-			.on(
-				'drag',
-				({
-					target,
-					transform,
-					left,
-					top,
-					right,
-					bottom,
-					beforeDelta,
-					beforeDist,
-					delta,
-					dist,
-					clientX,
-					clientY,
-				}) => {
-					target!.style.left = `${left}px`;
-					target!.style.top = `${top}px`;
-					target!.style.transform = transform;
-				}
-			)
-			.on(
-				'resize',
-				({ target, width, height, dist, delta, clientX, clientY }) => {
-					delta[0] && (target!.style.width = `${width}px`);
-					delta[1] && (target!.style.height = `${height}px`);
-				}
-			);
+			.on('drag', ({ target, transform, left, top }) => {
+				target.style.left = `${left}px`;
+				target.style.top = `${top}px`;
+				target.style.transform = transform;
+			})
+			.on('resize', ({ target, width, height, delta }) => {
+				delta[0] && (target.style.width = `${width}px`);
+				delta[1] && (target.style.height = `${height}px`);
+			});
 	}
 
 	render() {
