@@ -9,8 +9,8 @@
 	let terminalRef;
 
 	onMount(async () => {
-		const { Terminal } = await import('xterm');
 		const Moveable = await import('moveable');
+		const { Terminal } = await import('xterm');
 	});
 </script>
 
