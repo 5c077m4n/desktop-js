@@ -1,10 +1,8 @@
 import { writable } from 'svelte/store';
 
-import { uuid } from '../libs/uuid';
-
 class WindowEl {
 	constructor(type, name) {
-		this.id = uuid();
+		this.id = Symbol('window-instace');
 		this.type = type;
 		this.name = name;
 	}
@@ -12,7 +10,6 @@ class WindowEl {
 
 function createWindowList() {
 	const { subscribe, set, update } = writable([new WindowEl(123, 123)]);
-
 	return {
 		subscribe,
 		add: ({ name, type }) =>

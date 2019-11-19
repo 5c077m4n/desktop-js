@@ -18,7 +18,7 @@
 	<slot name="top-menu-bar" />
 	<slot name="desktop-content">
 		{#each $windowList as { id, type, name }, i (id)}
-			<WindowEl {id} {type} {name} />
+			<WindowEl {type} {name} />
 		{/each}
 	</slot>
 	<slot name="bottom-menu-bar" />

@@ -14,18 +14,21 @@
 	},
 	"dependencies": {
 		"compression": "^1.7.1",
-		"moveable": "^0.10.7",
-		"polka": "next",
+		"polka": "^1.0.0-next.7",
 		"sirv": "^0.4.0",
-		"xterm": "^4.2.0-vscode1"
+		"svelte-moveable": "^0.1.5",
+		"xterm": "^4.2.0-vscode1",
+		"xterm-addon-fit": "^0.3.0"
 	},
 	"devDependencies": {
 		"cypress": "^3.6.1",
+		"node-sass": "^4.13.0",
 		"npm-run-all": "^4.1.5",
 		"rimraf": "^3.0.0",
 		"sapper": "^0.27.0",
 		"svelte": "^3.15.0",
 		"svelte-loader": "^2.9.0",
+		"svelte-preprocess": "^3.2.6",
 		"webpack": "^4.7.0"
 	}
 }
