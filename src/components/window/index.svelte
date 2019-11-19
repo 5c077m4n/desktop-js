@@ -19,7 +19,7 @@
 			const xterm = new Terminal();
 			const fitAddon = new FitAddon();
 
-			term.loadAddon(fitAddon);
+			xterm.loadAddon(fitAddon);
 			xterm.open(terminalRef);
 			fitAddon.fit();
 
@@ -43,7 +43,7 @@
 	}
 	.window-top-toolbar {
 		& > * {
-			height: 100%;
+			max-height: 100%;
 		}
 
 		display: flex;
