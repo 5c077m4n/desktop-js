@@ -43,7 +43,10 @@
 	}
 	.window-top-toolbar {
 		& > * {
-			max-height: 100%;
+			height: 100%;
+		}
+		& > h4 {
+			text-align: center;
 		}
 
 		display: flex;
